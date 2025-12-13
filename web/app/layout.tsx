@@ -1,6 +1,16 @@
 import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/navbar/navbar";
+import MarketSentimentMobile from "@/components/body/marketSentiment";
+import Portfolio from "@/components/body/portofolio";
+import PortoStocks from "@/components/body/portoStocks";
+import PersonalizedNews from "@/components/body/personalizedNews";
+import News from "@/components/body/news";
+import Top from "@/components/body/Top";
+import TopMoversLosersMobile from "@/components/body/TopMover";
+import MobileFooterNav from "@/components/footer/foot";
+
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -13,15 +23,47 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
-      <body
-        className={`${manrope.className} antialiased`}
-      >
-        {children}
+      <body className="min-h-screen bg-[var(--background)] p-4">
+        <Navbar />
+
+        <div className="mt-16">
+        <MarketSentimentMobile />
+        </div>
+
+        <div className="mt-5">
+        <Portfolio />
+        </div>
+
+        <div className="mt-5">
+        <PortoStocks />
+        </div>
+
+        <div className="mt-5">
+        <PersonalizedNews />
+        </div>
+
+        <div className="mt-5">
+        <News />
+        </div>
+
+        <div className="mt-5">
+        <Top />
+        </div>
+
+        <div className="mt-5">
+        <TopMoversLosersMobile />
+        </div>
+
+        <div className="mt-5">
+        <MobileFooterNav />
+        </div>
+
+        <main className="mt-4">{children}</main>
       </body>
     </html>
   );
