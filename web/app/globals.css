@@ -3,19 +3,19 @@
 :root {
   --background: #0F1821;
   --foreground: #F3F4F6;
-  --card: #1B252E;
+  --card: #FFFFFF19;
   --card-foreground: #F3F4F6;
   --popover: #1B252E;
   --popover-foreground: #F3F4F6;
   --primary: #1368E7;
   --primary-foreground: #F3F4F6;
-  --secondary: #1B252E;
+  --secondary: #5a5e66;
   --secondary-foreground: #F3F4F6;
   --muted: #232B28;
   --muted-foreground: #9CA3AF;
   --destructive: #EF4444;
   --destructive-foreground: #F3F4F6;
-  --border: #232B28;
+  --border: #FFFFFF33;
   --input: #232B28;
   --radius: 0.5rem;
   --shadow-2xs: 2px 2px 0px 0px hsl(20 18% 51% / 0.06);
@@ -62,7 +62,7 @@
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) - 4px);
+  --radius-xl: calc(var(--radius) + 4px);
 
   --shadow-2xs: var(--shadow-2xs);
   --shadow-xs: var(--shadow-xs);

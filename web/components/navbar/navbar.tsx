@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Search } from "lucide-react";
+import { BellIcon } from "lucide-react";
 
 export default function Navbar({ userName = "User" }: { userName?: string }) {
     const [dateText, setDateText] = useState("");
@@ -64,7 +64,7 @@ export default function Navbar({ userName = "User" }: { userName?: string }) {
 
                 {/* Right */}
                 <button className="flex h-9 w-9 items-center justify-center rounded-full bg-muted hover:bg-muted/80 active:scale-95 transition">
-                    <Search className="h-4 w-4" />
+                    <BellIcon className="h-4 w-4" />
                 </button>
             </div>
         </nav>

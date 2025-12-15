@@ -1,9 +1,11 @@
 "use client";
 
-import { Eye, EyeOff, TrendingUp } from "lucide-react";
+import { EyeIcon, EyeOffIcon, TrendingUpIcon } from "lucide-react";
 import { useState } from "react";
-import Card from "../card/card";
-import CardHeader from "../card/cardheader";
+import Card from "../ui/card/card";
+import CardHeader from "../ui/card/cardheader";
+import Button from "../ui/button";
+import { twMerge } from "tailwind-merge";
 
 export default function Portfolio() {
     const [hidden, setHidden] = useState(true);
@@ -16,26 +18,36 @@ export default function Portfolio() {
     return (
         <Card>
             <CardHeader>
-                <span className="text-muted-foreground">
-                    Total Portfolio
+                <span className="">
+                    Total portfolio
                 </span>
             </CardHeader>
 
             {/* Portfolio value */}
             <div className="flex items-center gap-2">
-                <span className="text-2xl font-semibold text-foreground">
+                <span className={twMerge(
+                    "text-2xl font-semibold transition-all",
+                    hidden && "blur-sm"
+                )}>
                     {portfolioValue}
                 </span>
-
-
+                <Button
+                    onClick={() => setHidden(!hidden)}
+                    className="size-6 bg-transparent"
+                    aria-label="Toggle portfolio visibility"
+                >
+                    {hidden
+                        ? <EyeOffIcon className="h-4 w-4" />
+                        : <EyeIcon className="h-4 w-4" />
+                    }
+                </Button>
             </div>
 
-            {/* Daily change (AI-controlled) */}
             <div
                 className={`mt-2 flex items-center gap-1.5 text-sm ${isPositive ? "text-emerald-400" : "text-red-400"
                     }`}
             >
-                <TrendingUp className="h-4 w-4" />
+                <TrendingUpIcon className="h-4 w-4" />
                 <span className="font-medium">
                     {isPositive ? "+" : ""}
                     {dailyChange}%
