@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { Manrope } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/navbar/navbar";
 
-const manrope = Manrope({
+const inter = Inter({
   subsets: ["latin"],
 });
 
@@ -19,9 +19,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="min-h-screen bg-background">
+      <body className={`${inter.className} min-h-screen bg-background`}>
         <Navbar />
-        <main className="mt-4">{children}</main>
+        <main className="mt-2">{children}</main>
       </body>
     </html>
   );

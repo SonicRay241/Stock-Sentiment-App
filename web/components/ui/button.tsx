@@ -10,7 +10,7 @@ export default function Button(props: {
         <button
             {...props}
             className={twMerge(
-                "flex justify-center items-center rounded-md transition gap-2 bg-primary hover:brightness-110",
+                "w-full flex justify-center items-center rounded-md transition gap-2 bg-primary hover:brightness-110",
                 props.className
             )}
         >

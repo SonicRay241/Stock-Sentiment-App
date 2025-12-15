@@ -14,12 +14,7 @@ export default function SearchBar() {
                 <input
                     type="text"
                     placeholder="Search stocks, news, topics..."
-                    className="
-                        w-full bg-transparent
-                        text-sm text-foreground
-                        placeholder:text-foreground/50
-                        outline-none
-                    "
+                    className="w-full bg-transparent text-sm text-foreground placeholder:text-foreground/50 outline-none"
                 />
             </div>
         </Card>

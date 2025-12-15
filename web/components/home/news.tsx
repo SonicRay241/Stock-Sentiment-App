@@ -1,5 +1,6 @@
 import { TrendingUpIcon, TrendingDownIcon, MinusIcon } from "lucide-react";
 import Card from "../ui/card/card";
+import Button from "../ui/button";
 
 type NewsItem = {
   sentiment: "Bullish" | "Bearish" | "Neutral";
@@ -9,7 +10,7 @@ type NewsItem = {
   image: string;
 };
 
-export default function LatestNewsMobile() {
+export default function News() {
   // AI-controlled placeholders
   const news: NewsItem[] = [
     {
@@ -49,44 +50,46 @@ export default function LatestNewsMobile() {
   }
 
   return (
-    news.map((item, index) => (
-      <Card key={index} className="px-4">
-        <div className="flex gap-3">
-          <div className="size-24 shrink-0 rounded-xl overflow-hidden border border-white/10">
-            <img
-              src={item.image}
-              alt={item.title}
-              className="h-full w-full object-cover"
-            />
-          </div>
-          <div className="flex-1 min-w-0">
-            <span
-              className={`text-xs font-semibold tracking-wide mb-1 block ${sentimentColor(
-                item.sentiment
-              )}`}
-            >
-              {item.sentiment.toUpperCase()}
-            </span>
-            <h3 className="text-sm font-semibold text-white mb-1 line-clamp-2">
-              {item.title}
-            </h3>
-
-            <p className="text-sm leading-relaxed text-white/80 mb-3 line-clamp-3">
-              {item.description}
-            </p>
-
-            <div className="flex items-center gap-2">
-              <span className={sentimentColor(item.sentiment)}>
-                {sentimentIcon(item.sentiment)}
+    <>
+      {news.map((item, index) => (
+        <Card key={index} className="px-4">
+          <div className="flex gap-3">
+            <div className="size-24 shrink-0 rounded-xl overflow-hidden border border-white/10">
+              <img
+                src={item.image}
+                alt={item.title}
+                className="h-full w-full object-cover"
+              />
+            </div>
+            <div className="flex-1 min-w-0">
+              <span
+                className={`text-xs font-semibold tracking-wide mb-1 block ${sentimentColor(
+                  item.sentiment
+                )}`}
+              >
+                {item.sentiment.toUpperCase()}
               </span>
-              <span className="text-xs font-medium text-foreground">
-                {item.impact}
-              </span>
+              <h3 className="text-sm font-semibold text-white mb-1 line-clamp-2">
+                {item.title}
+              </h3>
+
+              <p className="text-sm leading-relaxed text-white/80 mb-3 line-clamp-3">
+                {item.description}
+              </p>
+
+              <div className="flex items-center gap-2">
+                <span className={sentimentColor(item.sentiment)}>
+                  {sentimentIcon(item.sentiment)}
+                </span>
+                <span className="text-xs font-medium text-foreground">
+                  {item.impact}
+                </span>
+              </div>
             </div>
           </div>
-        </div>
-
-      </Card>
-    ))
+        </Card>
+      ))}
+      <Button className="bg-card border border-border rounded-xl py-2 text-sm">View more</Button>
+    </>
   );
 }

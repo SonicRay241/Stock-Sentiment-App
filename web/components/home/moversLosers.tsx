@@ -54,7 +54,7 @@ export default function MoversLosers() {
         </div>
 
         {/* Divider */}
-        <Divider />
+        <Divider orientation="vertical" />
 
         {/* Top Losers */}
         <div className="flex-1">

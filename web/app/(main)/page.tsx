@@ -8,7 +8,7 @@ import SectionTitle from "@/components/home/sectionTitle";
 
 export default function Page() {
   return (
-    <div className="px-3.5 space-y-5">
+    <div className="px-3.5 space-y-4">
       <MarketSentiment />
       <Portfolio />
       <WatchList />
@@ -16,8 +16,6 @@ export default function Page() {
       <Top />
       <SectionTitle>Personalized News</SectionTitle>
       <News />
-      <div className="h-16"></div>
-      <Menubar />
     </div>
   );
 }

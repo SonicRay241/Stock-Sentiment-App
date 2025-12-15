@@ -42,7 +42,7 @@ export default function SwipeableSentimentCards() {
         <div className="w-full overflow-x-auto">
             <div
                 className="
-                    flex gap-4 px-4
+                    flex gap-4
                     snap-x snap-mandatory
                     scroll-smooth
                     scrollbar-hide
@@ -52,15 +52,9 @@ export default function SwipeableSentimentCards() {
                     <div
                         key={index}
                         className="snap-center shrink-0"
-                        style={{ width: 146.5 }}
                     >
                         <Card
-                            className="
-                                relative
-                                w-[146.5px] h-[175px]
-                                p-0
-                                overflow-hidden
-                            "
+                            className="relative w-44 h-44 p-0 overflow-hidden"
                         >
                             {/* Background Image */}
                             <div
@@ -69,7 +63,7 @@ export default function SwipeableSentimentCards() {
                             />
 
                             {/* Gradient Overlay */}
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+                            <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/40 to-transparent" />
 
                             {/* Bottom Content */}
                             <div className="relative z-10 h-full flex flex-col justify-end p-4 gap-2">
@@ -78,11 +72,11 @@ export default function SwipeableSentimentCards() {
                                     className={twMerge(
                                         "w-fit px-3 py-1 rounded-full text-xs font-semibold",
                                         item.sentiment === "Bullish" &&
-                                            "bg-emerald-400/20 text-emerald-400 border border-emerald-400/30",
+                                        "bg-emerald-400/80 border border-emerald-400",
                                         item.sentiment === "Bearish" &&
-                                            "bg-red-400/20 text-red-400 border border-red-400/30",
+                                        "bg-red-400/80 border border-red-400",
                                         item.sentiment === "Neutral" &&
-                                            "bg-blue-400/20 text-blue-400 border border-blue-400/30"
+                                        "bg-blue-400/80 border border-blue-400"
                                     )}
                                 >
                                     {item.sentiment}

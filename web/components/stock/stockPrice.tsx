@@ -9,14 +9,13 @@ export default function StockPrice() {
 
     return (
         <div className="flex flex-col">
-            {/* Price */}
-            <span className="text-4xl font-bold text-foreground">
+            <span className="text-4xl font-medium text-foreground">
                 {price}
             </span>
 
             {/* Change */}
             <div className="mt-2 flex items-center gap-2 text-sm">
-                <div className="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/15 px-3 py-1 text-emerald-400">
+                <div className="inline-flex items-center gap-1.5 rounded-lg bg-emerald-500/15 px-3 py-1 text-emerald-400">
                     <TrendingUp className="h-4 w-4" />
                     <span className="font-medium">
                         {isPositive ? "+" : ""}

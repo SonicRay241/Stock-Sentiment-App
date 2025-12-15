@@ -1,6 +1,6 @@
 "use client"
 
-import { LineChart, Line, ResponsiveContainer } from "recharts"
+import { LineChart, Line, ResponsiveContainer, AreaChart, Area } from "recharts"
 
 interface StockItemProps {
   symbol: string
@@ -23,17 +23,26 @@ export function StockItem({ symbol, name, price, change, positive = false, neutr
     if (positive) {
       // Upward trend
       for (let i = 0; i < points; i++) {
-        data.push({ value: 20 + i * 3 + Math.random() * 2 })
+        data.push({ value: 20 + i * 30 * Math.random() })
+      }
+      for (let i = 0; i < 3; i++) {
+        data.push({ value: (points - 2) * 25 + i * 50 + Math.random() * 40 })
       }
     } else if (neutral) {
       // Flat trend
       for (let i = 0; i < points; i++) {
-        data.push({ value: 25 + Math.random() * 3 - 1.5 })
+        data.push({ value: 25 + Math.random() * 40 - 1.5 })
+      }
+      for (let i = 0; i < 2; i++) {
+        data.push({ value: 25 + Math.random() * 4 - 1.5 })
       }
     } else {
       // Downward trend
       for (let i = 0; i < points; i++) {
-        data.push({ value: 40 - i * 3 + Math.random() * 2 })
+        data.push({ value: 50 - i * 12 * Math.random() })
+      }
+      for (let i = 0; i < 3; i++) {
+        data.push({ value: 40 - i * 30 + Math.random() * 4 })
       }
     }
 
@@ -50,9 +59,22 @@ export function StockItem({ symbol, name, price, change, positive = false, neutr
       </div>
       <div className="flex-1 px-4">
         <ResponsiveContainer width="100%" height={30}>
-          <LineChart data={chartData}>
-            <Line type="monotone" dataKey="value" stroke={chartColor} strokeWidth={2} dot={false} />
-          </LineChart>
+          <AreaChart data={chartData}>
+            <defs>
+              <linearGradient id={`colorUv${symbol}`} x1="0" y1="0" x2="0" y2="1">
+                <stop offset="5%" stopColor={chartColor} stopOpacity={0.8} />
+                <stop offset="95%" stopColor={chartColor} stopOpacity={0} />
+              </linearGradient>
+            </defs>
+            <Area
+              type="monotone"
+              dataKey="value"
+              fill={`url(#colorUv${symbol})`}
+              stroke={chartColor}
+              strokeWidth={2}
+              dot={false}
+            />
+          </AreaChart>
         </ResponsiveContainer>
       </div>
       <div className="text-right">

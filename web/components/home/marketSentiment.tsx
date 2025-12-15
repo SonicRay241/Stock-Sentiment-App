@@ -5,7 +5,6 @@ import Card from "../ui/card/card";
 import CardHeader from "../ui/card/cardheader";
 import { useState } from "react";
 import { twMerge } from "tailwind-merge";
-import Button from "../ui/button";
 
 export default function MarketSentiment() {
     const [sentimentValue, setSentimentValue] = useState(50); // 0–100 (AI will update)

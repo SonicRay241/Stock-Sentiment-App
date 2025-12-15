@@ -2,71 +2,48 @@
 
 import Card from "../ui/card/card";
 import {
-    LineChart,
-    Line,
     ResponsiveContainer,
     Tooltip,
     XAxis,
     YAxis,
+    AreaChart,
+    Area,
 } from "recharts";
 import { useState } from "react";
+import Divider from "../ui/divider";
+import Button from "../ui/button";
+import { twMerge } from "tailwind-merge";
 
 const data = [
-    { value: 120 },
-    { value: 135 },
-    { value: 128 },
-    { value: 132 },
-    { value: 125 },
-    { value: 140 },
-    { value: 150 },
-    { value: 148 },
-    { value: 155 },
+    { datetime: "Dec 16, 2025 11:00", value: 135 },
+    { datetime: "Dec 16, 2025 12:00", value: 120 },
+    { datetime: "Dec 16, 2025 13:00", value: 128 },
+    { datetime: "Dec 16, 2025 14:00", value: 132 },
+    { datetime: "Dec 16, 2025 15:00", value: 125 },
+    { datetime: "Dec 16, 2025 16:00", value: 140 },
+    { datetime: "Dec 16, 2025 17:00", value: 150 },
+    { datetime: "Dec 16, 2025 18:00", value: 148 },
+    { datetime: "Dec 16, 2025 19:00", value: 155 },
 ];
 
 const ranges = ["1H", "1D", "1W", "1M", "1Y"];
 
 export default function StockChart() {
-    const [activeRange, setActiveRange] = useState("1D");
-
     return (
-        <Card>
+        <Card className="px-3">
             <div className="flex flex-col">
-                {/* Time range selector */}
-                <div className="mb-4 flex items-center justify-center">
-                    {/* Outer bubble */}
-                    <div className="rounded-2xl bg-background p-2">
-                        {/* Middle bubble */}
-                        <div className="rounded-xl bg-background p-1">
-                            <div className="flex items-center gap-1">
-                                {ranges.map((range) => (
-                                    <button
-                                        key={range}
-                                        onClick={() => setActiveRange(range)}
-                                        className={`relative px-4 py-1.5 text-sm font-medium rounded-lg transition
-                                            ${activeRange === range
-                                                ? "text-foreground"
-                                                : "text-foreground/60 hover:text-foreground"
-                                            }`}
-                                    >
-                                        {/* Active (inner) bubble */}
-                                        {activeRange === range && (<>
-                                            <span className="absolute inset-0 rounded-lg bg-blue-600 shadow-md" />                                        </>)}
-
-                                        <span className="relative z-10">
-                                            {range}
-                                        </span>
-                                    </button>
-                                ))}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+                <TimeSelector />
                 {/* Chart */}
                 <div className="h-48">
                     <ResponsiveContainer width="100%" height="100%">
-                        <LineChart data={data}>
-                            <XAxis hide />
+                        <AreaChart data={data}>
+                            <defs>
+                                <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
+                                    <stop offset="5%" stopColor="#3b82f6" stopOpacity={0.8} />
+                                    <stop offset="95%" stopColor="#3b82f6" stopOpacity={0} />
+                                </linearGradient>
+                            </defs>
+                            <XAxis dataKey="datetime" hide />
                             <YAxis hide />
                             <Tooltip
                                 cursor={false}
@@ -78,34 +55,57 @@ export default function StockChart() {
                                     color: "#fff",
                                     fontSize: "12px",
                                 }}
+                                formatter={(value) => [`$${value}`, "Closing Price"]}
                             />
-                            <Line
+                            <Area
                                 type="monotone"
                                 dataKey="value"
-                                stroke="#3b82f6"
-                                strokeWidth={4}
+                                fill="url(#colorUv)"
+                                strokeWidth={2}
                                 dot={false}
                             />
-                        </LineChart>
+                        </AreaChart>
                     </ResponsiveContainer>
                 </div>
+                <div className="px-1">
+                    <Divider orientation="vertical" className="my-4" />
 
-                {/* Divider */}
-                <div className="my-4 h-px bg-white/10" />
-
-                {/* Footer */}
-                <div className="mt-4 flex items-center justify-between text-sm">
-                    <div className="flex items-center gap-2 text-foreground/70">
-                        {/* Green indicator dot */}
-                        <span className="h-2.5 w-2.5 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.8)]" />
-                        <span>High Sentiment Correlation</span>
+                    {/* Footer */}
+                    <div className="mt-4 flex items-center justify-between text-sm">
+                        <div className="flex items-center gap-2 text-foreground/70">
+                            {/* Green indicator dot */}
+                            <span className="h-2.5 w-2.5 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.8)]" />
+                            <span>High Sentiment Correlation</span>
+                        </div>
+                        <span className="text-foreground/60">
+                            Vol: 45.2M
+                        </span>
                     </div>
-
-                    <span className="text-foreground/60">
-                        Vol: 45.2M
-                    </span>
                 </div>
             </div>
         </Card>
     );
+}
+
+
+function TimeSelector() {
+    const [activeRange, setActiveRange] = useState("1D");
+    return (
+        <div className="mx-1 mb-6 p-1.5 flex items-center justify-center gap-1 bg-background rounded-xl">
+            {ranges.map((range) => (
+                <Button
+                    key={range}
+                    onClick={() => setActiveRange(range)}
+                    className={twMerge(
+                        "relative px-4 py-1.5 text-sm font-medium rounded-lg transition bg-transparent",
+                        activeRange === range ? "text-foreground bg-primary" : "text-foreground/60 hover:text-foreground"
+                    )}
+                >
+                    <span className="relative z-10">
+                        {range}
+                    </span>
+                </Button>
+            ))}
+        </div>
+    )
 }

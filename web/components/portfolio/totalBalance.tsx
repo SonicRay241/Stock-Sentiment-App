@@ -17,18 +17,10 @@ export default function PortfolioAndMarketSentiment() {
     const totalGain = 1245.3; // AI will update
     const formattedGain = `$${totalGain.toLocaleString()}`;
 
-    const [sentimentValue] = useState(50);
-    const sentimentLabel: "Positive" | "Neutral" | "Negative" =
-        sentimentValue < 41 ? "Negative" : sentimentValue > 60 ? "Positive" : "Neutral";
-
     return (
         <div className="space-y-6">
             <Card
-                className={twMerge(
-                    "bg-linear-to-b from-transparent to-primary/30 transition-all duration-500",
-                    sentimentLabel === "Positive" && "to-emerald-400/30",
-                    sentimentLabel === "Negative" && "to-red-400/30"
-                )}
+                className="bg-linear-to-br from-transparent via-transparent to-primary/30 transition-all duration-500"
             >
                 <CardHeader>
                     <div className="flex flex-col">
@@ -88,19 +80,6 @@ export default function PortfolioAndMarketSentiment() {
                             {dailyChange}%
                         </span>
                     </div>
-                </div>
-
-                {/* Progress */}
-                <div className="mt-4 h-2 w-full rounded-full bg-muted overflow-hidden">
-                    <div
-                        className={twMerge(
-                            "h-full rounded-full transition-all duration-500",
-                            sentimentLabel === "Positive" && "bg-emerald-400",
-                            sentimentLabel === "Negative" && "bg-red-400",
-                            sentimentLabel === "Neutral" && "bg-primary"
-                        )}
-                        style={{ width: `${sentimentValue}%` }}
-                    />
                 </div>
             </Card>
         </div>

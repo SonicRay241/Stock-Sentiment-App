@@ -10,8 +10,8 @@ export default function Divider(props: {
         <div className={twMerge(
             "bg-border",
             orientation == "horizontal"
-                ? "w-px"
-                : "h-px",
+                ? "h-px"
+                : "w-px",
             props.className
         )} />
     )

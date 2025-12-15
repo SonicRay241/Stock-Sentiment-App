@@ -7,7 +7,7 @@ export default function Card(props: {
 }) {
     return (
         <div className={twMerge(
-            "rounded-2xl bg-card backdrop-blur-md border border-border py-4 px-6 text-foreground w-full space-x-2",
+            "rounded-2xl bg-card backdrop-blur-md border border-border py-4 px-6 text-foreground w-full",
             props.className
         )}>
             {props.children}
