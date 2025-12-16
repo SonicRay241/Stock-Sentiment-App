@@ -35,7 +35,7 @@ export default function Page() {
                 <StockPrice />
                 <StockChart />
                 <div className="flex items-stretch gap-3.5 w-full">
-                    <SentimentCard />
+                    <SentimentCard ticker={params.ticker} />
                     <MarketCard />
                 </div>
                 <KeyStatistics />

@@ -28,7 +28,10 @@ export default function Navbar() {
 function NavContent() {
     const pathname = usePathname()
 
-    if (/\/stock\/.+/g.test(pathname)) {
+    if (/\/stock\/.+\/similar/g.test(pathname)) {
+        return <StockPageInfo2 />
+    }
+    else if (/\/stock\/.+/g.test(pathname)) {
         return <StockPageInfo />
     }
     else if (/\/portfolio/g.test(pathname)) {
@@ -53,6 +56,17 @@ function Generic(props: {
             <Avatar />
             <h1 className="font-semibold">{props.title}</h1>
         </>
+    )
+}
+
+function StockPageInfo2() {
+    const params = useParams<{ ticker: string }>()
+
+    return (
+        <WithBack>
+            <h1 className="text-sm">Similar News</h1>
+            <p className="text-muted-foreground text-xs">{params.ticker}</p>
+        </WithBack>
     )
 }
 

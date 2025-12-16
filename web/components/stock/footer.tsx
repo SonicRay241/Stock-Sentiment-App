@@ -16,7 +16,7 @@ export default function TradeFooter() {
 
             {/* Trade APPL Button */}
             <Button className="px-8 py-3 bg-primary hover:brightness-110 transition-all rounded-xl">
-                <span className="font-semibold">Trade {ticker}</span>
+                <span className="font-medium">Trade {ticker}</span>
                 <ArrowRightIcon className="w-5 h-5" />
             </Button>
         </nav>
