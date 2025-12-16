@@ -20,6 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} min-h-screen bg-background`}>
+        <div className="fixed top-0 left-0 h-full w-full bg-linear-to-br from-transparent via-transparent to-primary/20 -z-10" />
         <Navbar />
         <main className="mt-2">{children}</main>
       </body>

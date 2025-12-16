@@ -1,3 +1,5 @@
+import Link from "next/link"
+import Card from "../ui/card/card"
 import { StockItem } from "./stock-item"
 
 const popularStocks = [
@@ -9,16 +11,14 @@ const popularStocks = [
 
 export function PopularStocks() {
   return (
-    <div>
-      <div className="flex items-center justify-between mb-4">
-        <h2 className="text-xl font-semibold">Popular Stocks</h2>
-        <button className="text-sm text-blue-400 hover:text-blue-300">View All</button>
-      </div>
-      <div className="space-y-3">
-        {popularStocks.map((stock) => (
-          <StockItem key={stock.symbol} {...stock} />
-        ))}
-      </div>
+    <div className="space-y-3">
+      {popularStocks.map((stock) => (
+        <Link href={`/stock/${stock.symbol}`} className="block" key={stock.symbol}>
+          <Card key={stock.symbol}>
+            <StockItem {...stock} />
+          </Card>
+        </Link>
+      ))}
     </div>
   )
 }

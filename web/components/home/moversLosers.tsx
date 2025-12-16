@@ -29,7 +29,7 @@ export default function MoversLosers() {
         {/* Top Movers */}
         <div className="flex-1">
           <span className="text-xs font-semibold tracking-wide text-emerald-400 block mb-2">
-            TOP MOVERS
+            Gainers
           </span>
 
           <div className="space-y-2">
@@ -59,7 +59,7 @@ export default function MoversLosers() {
         {/* Top Losers */}
         <div className="flex-1">
           <span className="text-xs font-semibold tracking-wide text-red-400 block mb-2">
-            TOP LOSERS
+            Losers
           </span>
 
           <div className="space-y-2">

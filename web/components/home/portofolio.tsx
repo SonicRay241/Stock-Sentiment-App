@@ -12,7 +12,7 @@ export default function Portfolio() {
 
     // AI-controlled placeholders
     const portfolioValue = "$12,450.75"; // AI will update
-    const dailyChange = 0; // percentage (AI will update)
+    const dailyChange = 1.3; // percentage (AI will update)
     const isPositive = true; // AI will decide direction
 
     return (

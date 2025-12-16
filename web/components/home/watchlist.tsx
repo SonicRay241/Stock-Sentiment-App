@@ -3,59 +3,33 @@
 import { TrendingUpIcon, TrendingDownIcon } from "lucide-react";
 import Card from "../ui/card/card";
 import CardHeader from "../ui/card/cardheader";
+import { StockItem, StockItemProps } from "../stocklist/stock-item";
 
 export default function WatchList() {
-    // AI-controlled placeholders
-    const topMovers = [
+    const topMovers: StockItemProps[] = [
         {
-            symbol: "AAPL",
-            change: 0,
-            isPositive: true,
+            symbol: "NVDA",
+            name: "Nvidia Corp",
+            price: "$485.02",
+            change: "-3.4%",
+            positive: true,
+            neutral: false
         },
         {
             symbol: "TSLA",
-            change: 0,
-            isPositive: false,
+            name: "Tesla Inc",
+            price: "$215.99",
+            change: "-1.2%",
+            positive: false,
+            neutral: false
         },
     ];
 
     return (
         <Card>
-            <CardHeader>
-                <span>
-                    Watchlist
-                </span>
-            </CardHeader>
-
             <div className="space-y-3">
                 {topMovers.map((stock, index) => (
-                    <div
-                        key={index}
-                        className="flex items-center justify-between"
-                    >
-                        {/* Stock symbol */}
-                        <span className="text-sm font-medium text-foreground">
-                            {stock.symbol}
-                        </span>
-
-                        {/* Movement */}
-                        <div
-                            className={`flex items-center gap-1.5 text-sm font-medium ${stock.isPositive
-                                ? "text-emerald-400"
-                                : "text-red-400"
-                                }`}
-                        >
-                            {stock.isPositive ? (
-                                <TrendingUpIcon className="h-4 w-4" />
-                            ) : (
-                                <TrendingDownIcon className="h-4 w-4" />
-                            )}
-                            <span>
-                                {stock.isPositive ? "+" : "-"}
-                                {stock.change}%
-                            </span>
-                        </div>
-                    </div>
+                    <StockItem key={index} {...stock} />
                 ))}
             </div>
         </Card>

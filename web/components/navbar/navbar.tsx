@@ -51,7 +51,7 @@ function Generic(props: {
     return (
         <>
             <Avatar />
-            <h1>{props.title}</h1>
+            <h1 className="font-semibold">{props.title}</h1>
         </>
     )
 }

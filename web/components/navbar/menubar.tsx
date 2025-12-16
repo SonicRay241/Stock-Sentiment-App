@@ -48,7 +48,7 @@ function NavButton(props: {
 
     return (
         <Link href={props.href} className={twMerge(
-            "flex flex-col items-center gap-1 text-muted-foreground",
+            "flex flex-col items-center gap-1 text-muted-foreground p-4",
             pathname == props.href && "text-foreground"
         )}>
             {props.icon}

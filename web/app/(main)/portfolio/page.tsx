@@ -8,7 +8,7 @@ export default function Page() {
         <div className="px-3.5 space-y-5">
             <BalancePorto />
             <AssetDecision />
-            <SectionTitle>Your Holding </SectionTitle>
+            <SectionTitle>Your Holdings</SectionTitle>
             <HoldAsset />
         </div>
     );

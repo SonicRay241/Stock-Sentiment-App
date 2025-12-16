@@ -7,7 +7,7 @@ import { useState } from "react";
 import { twMerge } from "tailwind-merge";
 
 export default function MarketSentiment() {
-    const [sentimentValue, setSentimentValue] = useState(50); // 0–100 (AI will update)
+    const [sentimentValue, setSentimentValue] = useState(67); // 0–100 (AI will update)
     const sentimentLabel: "Positive" | "Neutral" | "Negative" = sentimentValue < 41 ? "Negative" : (sentimentValue > 60 ? "Positive" : "Neutral")
 
     return (
@@ -49,8 +49,7 @@ export default function MarketSentiment() {
             </div>
 
             <p className="text-sm leading-relaxed text-foreground mt-4">
-                Market sentiment evolves along the way, shaped by how investors react
-                to news, trends, and momentum over time.
+                AI sector rallies are driving positive sentiment across tech indices. Risk appetite is high.
             </p>
             {/* <Button onClick={() => setSentimentValue(Math.floor(Math.random() * 100))}>adwd</Button> */}
         </Card >

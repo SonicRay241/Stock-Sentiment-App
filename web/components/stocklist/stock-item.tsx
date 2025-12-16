@@ -1,8 +1,8 @@
 "use client"
 
-import { LineChart, Line, ResponsiveContainer, AreaChart, Area } from "recharts"
+import { ResponsiveContainer, AreaChart, Area } from "recharts"
 
-interface StockItemProps {
+export interface StockItemProps {
   symbol: string
   name: string
   price: string
@@ -52,7 +52,7 @@ export function StockItem({ symbol, name, price, change, positive = false, neutr
   const chartData = generateChartData()
 
   return (
-    <div className="bg-card border border-border rounded-xl p-5 flex items-center justify-between hover:bg-muted transition-colors cursor-pointer">
+    <div className="flex items-center justify-between">
       <div className="flex-1">
         <div className="font-semibold text-sm">{symbol}</div>
         <div className="text-xs text-muted-foreground">{name}</div>

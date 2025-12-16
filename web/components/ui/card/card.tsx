@@ -2,7 +2,7 @@ import { ReactNode } from "react"
 import { twMerge } from "tailwind-merge"
 
 export default function Card(props: {
-    children: ReactNode
+    children?: ReactNode
     className?: string
 }) {
     return (

@@ -40,14 +40,7 @@ const items: CardItem[] = [
 export default function SwipeableSentimentCards() {
     return (
         <div className="w-full overflow-x-auto">
-            <div
-                className="
-                    flex gap-4
-                    snap-x snap-mandatory
-                    scroll-smooth
-                    scrollbar-hide
-                "
-            >
+            <div className="flex gap-4 snap-x snap-mandatory scroll-smooth no-scrollbar">
                 {items.map((item, index) => (
                     <div
                         key={index}
