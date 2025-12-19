@@ -19,7 +19,7 @@ const items: CardItem[] = [
         title: "Market Momentum Surges",
         ticker: "AAPL",
         timeAgo: "2h ago",
-        image: "https://images.unsplash.com/photo-1641932801647-08aeb8e3f6aa",
+        image: "https://images.unsplash.com/photo-1612010167102-d1e8f83833e1?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHN0b2Nrc3xlbnwwfHwwfHx8MA%3D%3D",
     },
     {
         sentiment: "Neutral",
@@ -33,7 +33,7 @@ const items: CardItem[] = [
         title: "Short-Term Outlook Weakens",
         ticker: "TSLA",
         timeAgo: "1h ago",
-        image: "https://images.unsplash.com/photo-1624996752380-8ec242e0c8f9",
+        image: "https://images.unsplash.com/photo-1585011650347-c59dbef5a823?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHRlc2xhfGVufDB8fDB8fHww",
     },
 ];
 

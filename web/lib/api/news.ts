@@ -16,11 +16,11 @@ const latestNews: NewsItem[] = [
             impact: "High Impact",
             ticker: "NVDA",
             timeAgo: "45m ago",
-            title: "Nvidia shares jump after strong AI chip demand outlook",
+            title: "Nvidia stock rises on stronger-than-expected earnings and margin expansion",
             description:
-                "Nvidia surged as analysts raised forecasts on sustained demand for data-center GPUs and AI infrastructure.",
+                "Nvidia gained after reporting quarterly earnings that exceeded expectations, driven by improved margins and disciplined cost management.",
             image:
-                "https://images.unsplash.com/photo-1624996752380-8ec242e0c8f9?q=80&w=600&auto=format&fit=crop",
+                "https://images.unsplash.com/photo-1555618565-9f2b0323a10d?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         },
         {
             sentiment: "Bearish",
@@ -64,7 +64,7 @@ const latestNews: NewsItem[] = [
             description:
                 "Netflix edged lower as analysts questioned the sustainability of recent subscriber additions.",
             image:
-                "https://images.unsplash.com/photo-1581091215367-59ab6f1b3c5a?q=80&w=600&auto=format&fit=crop",
+                "https://images.unsplash.com/photo-1670942298778-f339cac1fe01?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjh8fG5ldGZsaXh8ZW58MHx8MHx8fDA%3D",
         },
     ];
 
@@ -78,7 +78,7 @@ const topNews: NewsItem[] = [
             description:
                 "Investors pushed major tech shares higher today, driven by renewed confidence in AI-led growth.",
             image:
-                "https://images.unsplash.com/photo-1642543348749-6cbdc6f2f2b4?q=80&w=600&auto=format&fit=crop",
+                "https://images.unsplash.com/photo-1691643158804-d3f02eb456a3?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHN0b2Nrc3xlbnwwfHwwfHx8MA%3D%3D",
         },
         {
             sentiment: "Bearish",
